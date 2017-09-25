@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>测试侧滑锁定列</title>
+    <link href="boschart.css" rel="stylesheet">
+</head>
+<body>
+       <div id="list-out-wraper"></div>
+
+       <script src="boschart.js"></script>
+<script>
+    var chartObject=null;
+    var listArr=[],columnWidth= {"订单日期":"86","客户代码":"","客户名称":"","产品名称":"","规格型号":"","单据编号":"","交货日期":"","单位(基本)":"","签订数量（基本）":"","签订数量（常用）":"",
+        "签订单价":"","签订金额":"","出库单号":"","完成日期":"","出库数量(基本)":"","出库数量(常用)":"","未出库数（基本）":"","未出库数常用":""},freezeCol=0;
+    for(var i= 0,len=300;i<len;i++){
+       var listObj= {"订单日期":"2009-4-13","客户代码":"00000","客户名称":"东方机电","产品名称":"服务协议","规格型号":"7507","单据编号":"SEORD000054","交货日期":"/Date(1239552000000)/","单位(基本)":"KG","签订数量（基本）":10,
+           "签订数量（常用）":10,"签订单价":2.34,"签订金额":23.4, "出库单号":"","完成日期":"/Date(1239552000000)/","出库数量(基本)":0,"出库数量(常用)":0,"未出库数（基本）":10,"未出库数常用":10};
+       listArr.push(listObj);
+    }
+    if(chartObject==null)
+        chartObject = new K3WISEMobile.scroller("list-out-wraper").bindData(listArr, { "ColumnsWidth": columnWidth, "Freeze": freezeCol });
+</script>
+</body>
+</html>

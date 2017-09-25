@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+   <head>
+        <title>Test Widget</title>
+        <meta name='viewport' content='width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no'>
+        <style type='text/css'>
+             *{
+             	-webkit-box-sizing:border-box;
+             	-moz-box-sizing:border-box;
+             	-box-sizing:border-box;
+             }
+             ul,body{padding:0;margin:0;}
+             ul{list-style: none}
+             #widget{
+             	display: flex;
+             	flex-direction:row;
+             	flex-wrap:wrap;
+             	width:100%;
+             	margin:30px auto;
+             }
+             ul li{
+             	width:25%;
+             	height:50px;display: flex;justify-content:center;align-items:center;
+             }
+
+        </style>
+   </head>
+   <body>
+       <ul id='widget'>
+	
+       </ul>	
+   </body>	
+   <script type='text/javascript'>
+        var Data=[
+            {name:'Loading',id:'loading'},
+            {name:'scroll Text',id:'scrollText'},
+            {name:'DragView',id:'dragview'},
+            {name:'Didlog List',id:'dialoglist'},
+            {name:'Alert Time',id:'alerttime'},
+            {name:'photo',id:'photo'},
+            {name:'date',id:'date'},
+            {name:'link date',id:'linkdate'}
+        ];
+        function domReady(){
+            var List=document.getElementById('widget');
+            var documentFragment=document.createDocumentFragment();
+            for(var i=0,len=Data.length;i<len;i++){
+            	var item=Data[i];
+            	var divNode=document.createElement('LI');
+            	divNode.setAttribute('id',item.id);
+            	divNode.innerHTML=item.name;
+            	documentFragment.appendChild(divNode);
+            }
+            List.appendChild(documentFragment);
+            List.addEventListener('click',function(e){
+                
+            },false);
+        }
+        document.addEventListener('DOMContentLoaded',domReady,false);
+   </script>
+</html>
